@@ -69,7 +69,7 @@ for record in SeqIO.parse("sample.fasta","fasta"):
 
 # Generate translations    
     translation_record = record[:]
-    translation_record.seq = record.seq.translate()
+    translation_record.seq = record.seq[:len(record.seq) - len(record.seq) % 3].translate()
     translation.append(translation_record)
 
 
